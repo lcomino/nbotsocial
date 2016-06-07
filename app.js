@@ -6,6 +6,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var load = require('express-load');
 var session = require('express-session');
+var mongoose = require('mongoose');
+
+global.db = mongoose.connect("mongodb://localhost/nbotsocial");
 
 var app = express();
 

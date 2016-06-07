@@ -7,25 +7,27 @@ var client = new Twitter({
   access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
 });
 
+console.log(process.env);
+
 module.exports = function(app){
 	var TwitterController = {
-		index : function(req, res){			
+		index : function(req, res){
 			res.render('twitter/index');
 			var params = {screen_name: 'nodejs'};
 			client.get('statuses/user_timeline', params, function(error, tweets, response){
 			  if (!error) {
 			    console.log(tweets);
 			  }
-			});	
+			});
 		},
 		tweetar : function(req, res){
 
 			client.post('statuses/update', {status: req.body.mensagem + '#NodeJs #javascript #soudev'},  function(error, tweet, response){
 			  if(error) throw error;
-			  console.log(tweet);  // Tweet body. 
-			  console.log(response);  // Raw response object. 
+			  console.log(tweet);  // Tweet body.
+			  console.log(response);  // Raw response object.
 			  res.render('twitter/index');
-			});				
+			});
 		}
 	};
 
