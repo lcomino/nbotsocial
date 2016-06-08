@@ -4,23 +4,31 @@ module.exports = function(app){
 			res.render('home/index');
 		},
 		login : function(req, res){
-			console.log(req.body);
-			var email = req.body.email,
-				nome = req.body.nome;
-
-			if(email && nome){
-				var usuario = {
-					nome : req.body.nome,
-					email : req.body.email,
-					contatos : []
-				};
-
-				req.session.usuario = usuario;
-				res.redirect('/contatos');
+			var query = {email : req.body.email};
+			Usuario.findOne(query).select('nome email').exec(function(err, usuario){
 				
-			}else{
-				res.redirect('/');
-			}
+				if(usuario){
+					req.session.usuario = usuario;
+					res.redirect('/contatos');
+				}else{
+
+					var user = {
+						nome : req.body.nome,
+						email : req.body.email
+					}
+
+					Usuario.create(user, function(err, usuario){
+						if(err){
+							res.redirect('/');
+						}else{
+							req.session.usuario = usuario;
+							res.redirect('/contatos');
+						}
+
+					});
+				}						
+
+			});
 		},
 		logout : function(req, res){
 			req.session.destroy();
