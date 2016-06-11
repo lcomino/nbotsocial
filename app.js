@@ -7,6 +7,9 @@ var bodyParser = require('body-parser');
 var load = require('express-load');
 var session = require('express-session');
 var mongoose = require('mongoose');
+//var autenticator = require('./middleware/autenticator');
+
+//load('middleware', {verbose : true});
 
 global.db = mongoose.connect("mongodb://localhost/nbotsocial");
 
@@ -28,9 +31,10 @@ app.use(session({
     saveUninitialized: true
     }
 ));
+//app.use(autenticator);
 app.use(express.static(path.join(__dirname, 'public')));
 
-load('models')
+load('models', {verbose : true})
     .then('controllers')
     .then('routes')
     .into(app);

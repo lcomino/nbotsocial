@@ -1,0 +1,18 @@
+<% include ../header %>
+    <header>
+        <div class="col-xs-12">
+            <h2>Nbotsocial - Novo post</h2>
+        </div>
+    </header>
+    <section>
+        <div class="col-xs-12">
+            <form action="/posts/novo" method="post">
+                <div class="form-group">
+                    <label for="conteudo">Conteúdo</label>
+                    <textarea id="conteudo" name="conteudo" class="form-control"></textarea>
+                </div>
+                <button type="submit" class="btn btn-info btn-lg">Criar</button>
+            </form>
+        </div>
+    </section>
+<% include ../footer %>

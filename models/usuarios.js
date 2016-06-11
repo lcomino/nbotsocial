@@ -1,4 +1,5 @@
 module.exports = function(app){
+
     var Schema = require('mongoose').Schema;
 
     var usuario = Schema({
@@ -7,5 +8,5 @@ module.exports = function(app){
         senha : {type: String, required: true}
     });
 
-    return db.model('usuarios', usuario)
+    return db.model('usuarios', usuario);
 };
