@@ -4,12 +4,12 @@ module.exports = function(app){
 
     var post = Schema({
         conteudo : {type: String, required : true},
-        redeSocial : {type: String, required: true, index: {unique : true}},
+        redeSocial : {type: String, required: true},
         midias : [Schema.Types.ObjectId],
         programadoPara: [Date],
         frequencia : Number,
         ativo : {type: Boolean, default : true},
-        qtdeExecucoes : Number,
+        qtdeExecucoes : {type:Number, default : 0},
         cadastradoEm: {type:Date, default: Date.now}
     });
 

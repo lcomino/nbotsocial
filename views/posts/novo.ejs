@@ -1,18 +1,43 @@
 <% include ../header %>
-    <header>
+    <div class="row">
         <div class="col-xs-12">
-            <h2>Nbotsocial - Novo post</h2>
+            <header>            
+                <h2>Nbotsocial - Novo post</h2>            
+            </header>
         </div>
-    </header>
+    </div>
     <section>
-        <div class="col-xs-12">
-            <form action="/posts/novo" method="post">
-                <div class="form-group">
-                    <label for="conteudo">Conteúdo</label>
-                    <textarea id="conteudo" name="conteudo" class="form-control"></textarea>
+        <form action="/posts/novo" method="post">
+            <div class="row">
+                <div class="col-xs-12">
+                    
+                        <div class="form-group">
+                            <label for="conteudo">Conteúdo</label>
+                            <textarea id="conteudo" name="conteudo" class="form-control"></textarea>
+                        </div>                                    
+                    
                 </div>
-                <button type="submit" class="btn btn-info btn-lg">Criar</button>
-            </form>
-        </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4 form-group">
+                    <select name="redeSocial" id="redes-sociais" class="form-control">
+                        <option value="Twitter">Twitter</option>
+                        <option value="Instagram">Instagram</option>
+                        <option value="Facebook">Facebook</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4 form-group">
+                    <input type="date" name="programadoParaData" class="form-control">
+                    <input type="time" name="programadoParaHora" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <button type="submit" class="btn btn-info btn-lg">Criar</button>
+                </div>
+            </div>
+        </form>
     </section>
 <% include ../footer %>
