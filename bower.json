@@ -1,0 +1,22 @@
+{
+  "name": "NBotSocial",
+  "description": "",
+  "main": "./bin/www",
+  "authors": [
+    "lcomino <lcomino3d@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/lcomino/nbotsocial",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "moment": "^2.13.0"
+  }
+}

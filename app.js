@@ -1,3 +1,5 @@
+'use strict';
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -7,6 +9,8 @@ var bodyParser = require('body-parser');
 var load = require('express-load');
 var session = require('express-session');
 var mongoose = require('mongoose');
+
+
 //var autenticator = require('./middleware/autenticator');
 
 //load('middleware', {verbose : true});
